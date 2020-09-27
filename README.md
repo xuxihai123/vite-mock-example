@@ -1,0 +1,1 @@
+# a example for vite-plugin-mock with vue

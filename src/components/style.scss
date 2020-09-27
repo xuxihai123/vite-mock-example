@@ -1,0 +1,66 @@
+.layout {
+  display: flex;
+  justify-content: center;
+}
+.left {
+  text-align: left;
+  width: 600px;
+}
+.right {
+  margin-left: 10px;
+  .line1 {
+    width: 400px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 auto;
+    display: flex;
+    .label {
+      display: inline-block;
+      width: 100px;
+    }
+    .url {
+      flex: 1 0 0%;
+      display: flex;
+      height: 26px;
+      line-height: 26px;
+    }
+    .test {
+      flex: 0 0 80px;
+      display: flex;
+      height: 26px;
+      line-height: 26px;
+      margin: 0 10px;
+    }
+    select {
+      flex: 1 0 0%;
+      display: flex;
+    }
+  }
+
+  .line2 {
+    width: 400px;
+    margin: 0 auto;
+    text-align: left;
+    pre {
+      outline: 1px solid #ccc;
+      padding: 5px;
+      margin: 5px;
+      min-height: 400px;
+    }
+    .string {
+      color: green;
+    }
+    .number {
+      color: darkorange;
+    }
+    .boolean {
+      color: blue;
+    }
+    .null {
+      color: magenta;
+    }
+    .key {
+      color: red;
+    }
+  }
+}
