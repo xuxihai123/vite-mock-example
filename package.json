@@ -13,6 +13,6 @@
     "sass": "^1.26.11",
     "sass-loader": "^10.0.2",
     "vite": "^1.0.0-rc.1",
-    "vite-plugin-mockit": "^0.0.1"
+    "vite-plugin-mockit": "^0.0.2"
   }
 }

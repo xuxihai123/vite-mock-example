@@ -3,10 +3,11 @@ const user = require("./user");
 module.exports = {
   "POST /api/login": user.login,
   "GET /api/users": function(ctx, next) {
-    let query = req.query || {};
+    let query = ctx.query || {};
     ctx.body = {
       limit: query.limit,
       offset: query.offset,
+      
       list: [
         {
           username: "admin1",
@@ -21,7 +22,7 @@ module.exports = {
   },
   "GET /api/users/:id": (ctx, next) => {
     ctx.body = {
-      id: req.params.id,
+      id: ctx.params.id,
       username: "kenny"
     };
   },
