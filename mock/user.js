@@ -1,8 +1,8 @@
 module.exports = {
-  login: (ctx, next) => {
-    ctx.body = {
+  login: function (req, res) {
+    res.json({
       status: "ok",
-      code: 2000
-    };
-  }
+      code: 2000,
+    });
+  },
 };

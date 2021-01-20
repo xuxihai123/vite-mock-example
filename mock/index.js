@@ -2,40 +2,39 @@ const user = require("./user");
 
 module.exports = {
   "POST /api/login": user.login,
-  "GET /api/users": function(ctx, next) {
-    let query = ctx.query || {};
-    ctx.body = {
+  "GET /api/users": function (req, res) {
+    let query = req.query || {};
+    return res.json({
       limit: query.limit,
       offset: query.offset,
-      
       list: [
         {
           username: "admin1",
-          sex: 1
+          sex: 1,
         },
         {
           username: "admin2",
-          sex: 0
-        }
-      ]
-    };
+          sex: 0,
+        },
+      ],
+    });
   },
-  "GET /api/users/:id": (ctx, next) => {
-    ctx.body = {
-      id: ctx.params.id,
-      username: "kenny"
-    };
+  "GET /api/users/:id": (req, res) => {
+    return res.json({
+      id: req.params.id,
+      username: "kenny",
+    });
   },
-  "POST /api/users": (ctx, next) => {
-    ctx.body = { status: "ok", message: "创建成功！" };
+  "POST /api/users": (req, res) => {
+    res.send({ status: "ok", message: "创建成功！", body: req.body });
   },
-  "DELETE /api/users/:id": (ctx, next) => {
+  "DELETE /api/users/:id": (req, res) => {
     // console.log(req.params.id);
-    ctx.body = { status: "ok", message: "删除成功！" };
+    res.send({ status: "ok", message: "删除成功！", d: req.params.id });
   },
-  "PUT /api/users/:id": (ctx, next) => {
+  "PUT /api/users/:id": (req, res) => {
     // console.log(req.params.id);
     // console.log(req.body);
-    ctx.body = { status: "ok", message: "修改成功！" };
-  }
+    res.send({ status: "ok", message: "修改成功！", id: req.params.id });
+  },
 };

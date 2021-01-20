@@ -49,11 +49,11 @@ export default {
       <div class="line1">
         <div class="url">
           <span class="label">api call:</span>
-          <select v-model="apicall" style="width:50px">
+          <select v-model="apicall" style="width: 50px">
             <option value="post:/api/users">post /api/users</option>
             <option value="put:/api/users/188">put /api/users/188</option>
-            <option value="get:/api/users/199">get /api/users/109</option>
-            <option value="get:/api/users">get /api/users</option>
+            <option value="get:/api/users/199">get /api/users/199</option>
+            <option value="get:/api/users?limit=10&offset=0">get /api/users</option>
             <option value="delete:/api/users/199">delete /api/users/199</option>
           </select>
         </div>
@@ -75,11 +75,11 @@ export default {
   data() {
     return {
       apicall: "post:/api/users",
-      respData: ""
+      respData: "",
     };
   },
   props: {
-    msg: String
+    msg: String,
   },
   methods: {
     send() {
@@ -89,19 +89,19 @@ export default {
       if (args[0] === "post" || args[0] === "put") {
         data = {
           username: "abc",
-          password: "bbb"
+          password: "bbb",
         };
       }
       axios({
         method: args[0],
         url: args[1],
-        data: data
-      }).then(resp => {
+        data: data,
+      }).then((resp) => {
         console.log(resp);
         const data = JSON.stringify(resp.data, null, 2);
         document.getElementById("result").innerHTML = data;
       });
-    }
-  }
+    },
+  },
 };
 </script>
